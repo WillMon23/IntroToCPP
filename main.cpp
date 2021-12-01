@@ -5,7 +5,8 @@
 
 int main()
 {
-	int x = { 5 };
-	Entity wampus = Entity('W', 100000, 5, -20);
+	Engine engine = Engine();
+	engine.run();
+
 	return 0;
 }

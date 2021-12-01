@@ -4,6 +4,10 @@ class Entity
 {
 public:
 	/// <summary>
+	/// Defult Deconstructor
+	/// </summary>
+	Entity();
+	/// <summary>
 	/// Entity deconstructor
 	/// </summary>
 	/// <param name="icon"> Icon displayed</param>
