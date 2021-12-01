@@ -38,7 +38,7 @@ public:
 	/// <param name="damageAmount">damage being done to health</param>
 	/// <returns>the defrense from health and damaage taken</returns>
 	float takeDamage(float damageAmount);
-	float attack(Entity entity);
+	float attack(Entity* entity);
 private:
 	char m_icon;
 	float m_health;
