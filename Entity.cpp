@@ -16,6 +16,11 @@ Entity::Entity(char icon, float health, float attackPower, float defensePower)
 	m_defensePower = defensePower;
 }
 
+/// <summary>
+/// Damage calculations 
+/// </summary>
+/// <param name="damageAmount"></param>
+/// <returns></returns>
 float Entity::takeDamage(float damageAmount)
 {
 	float damageTaken = damageAmount - getDefensePower();

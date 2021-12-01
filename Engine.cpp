@@ -27,13 +27,14 @@ void Engine::run()
 /// </summary>
 void Engine::start()
 {
-	Entity wompus = Entity('W', 130002000, 5780002, -15000);
-	Entity redactedLittleSkeleton = Entity('r', 4400000 - 44000, 45500 - 40, 0);
-	Entity unclephil = Entity('U', 1, 0, 6900055);
+	Entity* wompus = new Entity('W', 130002000, 5780002, -15000);
+	Entity* redactedLittleSkeleton = new Entity('r', 4400000 - 44000, 45500 - 40, 0);
+	Entity* unclephil = new Entity('U', 1, 0, 6900055);
 
 	m_enities[0] = wompus;
 	m_enities[1] = redactedLittleSkeleton;
 	m_enities[2] = unclephil;
+	m_entityCount = 3;
 
 	m_currentFighter1 = m_enities[0];
 	m_currentFighter2 = m_enities[1];
@@ -45,21 +46,22 @@ void Engine::start()
 void Engine::update()
 {
 
-	if (m_currentFighter1.getHealth() <= 0)
+	if (m_currentFighter1 -> getHealth() <= 0)
 	{
 		m_currentFighter1 = m_enities[m_currentFighterIndex];
 		m_currentFighterIndex++;
 	}
-	else if (m_currentFighter2.getHealth() <= 0)
+
+	else if (m_currentFighter2 -> getHealth() <= 0)
 	{
 		m_currentFighter2 = m_enities[m_currentFighterIndex];
 		m_currentFighterIndex++;
 	}
 
-	m_currentFighter1.attack(m_currentFighter2);
-	m_currentFighter2.attack(m_currentFighter1);
+	m_currentFighter1 -> attack(*m_currentFighter2);
+	m_currentFighter2 -> attack(*m_currentFighter1);
 
-	if(m_currentFighterIndex >= size(m_enities)
+	if(m_currentFighterIndex >= m_entityCount);
 }
 
 /// <summary>
@@ -71,4 +73,5 @@ void Engine::draw()
 
 void Engine::end()
 {
+	delete this;
 }
