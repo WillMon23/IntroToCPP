@@ -32,8 +32,6 @@ void Engine::start()
 	Entity redacte = Entity('r', 1, 2, 3);
 	Entity unclephil = Entity('U', 3, 1, 2);
 
-	Entity* entityArray = new Entity[m_entityCount];
-
 	m_enities[0] = wompus;
 	m_enities[1] = redacte;
 	m_enities[2] = unclephil;
