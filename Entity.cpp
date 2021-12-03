@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include <iostream>
 
 Entity::Entity()
 {
@@ -39,4 +40,12 @@ float Entity::takeDamage(float damageAmount)
 float Entity::attack(Entity* entity)
 {
 	return entity->takeDamage(getAttackPower());
+}
+
+void Entity::printStats()
+{
+	std::cout << m_icon << std::endl;
+	std::cout << "Health: " << getHealth() << std::endl;
+	std::cout << "Attack Power: " << getAttackPower() << std::endl;
+	std::cout << "Defense Power: " << getDefensePower() << std::endl;
 }
