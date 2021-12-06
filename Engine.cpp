@@ -9,6 +9,12 @@ Engine::Engine()
 	m_currentFighterIndex = 0;
 }
 
+Engine::~Engine()
+{
+	delete m_currentFighter1;
+	delete m_currentFighter2;
+}
+
 void Engine::run()
 {
 	start();
@@ -37,9 +43,13 @@ void Engine::start()
 	m_enities[2] = unclephil;
 	m_entityCount = 3;
 
+	Entity* entityPtrs[5];
+	Entity** enetities = new Entity*[5];
+
 	m_currentFighter1 = &m_enities[0];
 	m_currentFighter2 = &m_enities[1];
 	m_currentFighterIndex = 2;
+
 }
 /// <summary>
 /// Updates once per frame 
