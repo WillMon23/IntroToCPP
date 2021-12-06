@@ -9,7 +9,7 @@ Entity::Entity()
 	m_defensePower = 0;
 }
 
-Entity::Entity(char icon, float health, float attackPower, float defensePower)
+Entity::Entity(char icon, float health, float attackPower, float defensePower) 
 {	
 	m_icon = icon;
 	m_health = health;
