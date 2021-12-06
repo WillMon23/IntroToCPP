@@ -2,17 +2,17 @@
 #include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
+
 Engine::Engine()
 {
 	m_applicationShouldClose = false;
-	m_entityCount = 0;
-	m_currentFighterIndex = 0;
+	m_sceneCount = 0;
+
 }
 
 Engine::~Engine()
 {
-	delete m_currentFighter1;
-	delete m_currentFighter2;
+
 }
 
 void Engine::run()
@@ -26,6 +26,20 @@ void Engine::run()
 	}
 
 	end();
+}
+
+void Engine::addScene(Scene* scene)
+{
+	Scene** temPtr = new Scene * [m_sceneCount + 1];
+	if (m_sceneCount != 0)
+	{
+		for (int i = 0; i < m_sceneCount; i++)
+			temPtr[i] = m_scenes[i];
+	}
+	temPtr[m_sceneCount] = scene;
+	
+	m_sceneCount++;
+	m_scenes = temPtr;
 }
 
 /// <summary>
@@ -49,6 +63,9 @@ void Engine::start()
 	m_currentFighter1 = &m_enities[0];
 	m_currentFighter2 = &m_enities[1];
 	m_currentFighterIndex = 2;
+
+	for (int i = 0; i < m_sceneCount; i++)
+		m_scenes[i]->start();
 
 }
 /// <summary>
