@@ -42,27 +42,23 @@ void Engine::addScene(Scene* scene)
 	m_scenes = temPtr;
 }
 
+Scene* Engine::getCurrentScene()
+{
+	return nullptr;
+}
+
+void Engine::setCurrentScene(int index)
+{
+	m_scenes[index];
+}
+
 /// <summary>
 /// Idarates once at start 
 /// meant to initalize 
 /// </summary>
 void Engine::start()
 {
-	Entity wompus = Entity('W', 3, 2, 1);
-	Entity redacte = Entity('r', 1, 2, 3);
-	Entity unclephil = Entity('U', 3, 1, 2);
-
-	m_enities[0] = wompus;
-	m_enities[1] = redacte;
-	m_enities[2] = unclephil;
-	m_entityCount = 3;
-
-	Entity* entityPtrs[5];
-	Entity** enetities = new Entity*[5];
-
-	m_currentFighter1 = &m_enities[0];
-	m_currentFighter2 = &m_enities[1];
-	m_currentFighterIndex = 2;
+	
 
 	for (int i = 0; i < m_sceneCount; i++)
 		m_scenes[i]->start();
@@ -74,26 +70,7 @@ void Engine::start()
 void Engine::update()
 {
 
-	if (m_currentFighter1->getHealth() <= 0 && m_currentFighterIndex < m_entityCount)
-	{
-		m_currentFighter1 = &m_enities[m_currentFighterIndex];
-		m_currentFighterIndex++;
-	}
-
-	if (m_currentFighter2->getHealth() <= 0 && m_currentFighterIndex < m_entityCount)
-	{
-		m_currentFighter2 = &m_enities[m_currentFighterIndex];
-		m_currentFighterIndex++;
-	}
-
-	if (m_currentFighter1->getHealth() <= 0 || m_currentFighter2->getHealth() <= 0 && m_currentFighterIndex < m_entityCount)
-	{
-		m_applicationShouldClose = true;
-		return;
-	}
-
-		m_currentFighter1->attack(m_currentFighter2);
-		m_currentFighter2->attack(m_currentFighter1);
+	
 }
 
 /// <summary>

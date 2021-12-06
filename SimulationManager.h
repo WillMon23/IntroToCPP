@@ -1,6 +1,7 @@
 #pragma once
 #include "Actor.h"
 #include "Entity.h"
+#include "Engine.h"
 class SimulationManager :
     public Actor
 {
@@ -12,7 +13,7 @@ public:
     void update() override;
 
 private:
-    Entity* m_entities;
+    Entity** m_entities;
     Entity* m_currentFighter1;
     Entity* m_currentFighter2;
 
